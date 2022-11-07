@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { FaDumpsterFire } from "react-icons/fa";
 
 const Headers = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -8,12 +9,15 @@ const Headers = () => {
       <nav className="relative bg-white shadow  text-black">
         <div className="container px-6 py-4  mx-auto md:flex md:justify-between ">
           <div className="flex  justify-between">
-            <div>
+            <div className="">
               <Link
-                className="text-4xl  font-black text-yellow-400  transition-colors duration-300 transform lg:text-start "
+                className="text-2xl  lg:text-5xl font-black text-yellow-400  transition-colors duration-300 transform lg:text-start  flex"
                 to="#"
               >
-                Brand
+                <div className="hidden lg:block">
+                  <FaDumpsterFire></FaDumpsterFire>
+                </div>
+                AmarKitchen
               </Link>
             </div>
 
@@ -70,33 +74,33 @@ const Headers = () => {
           >
             <div className="flex flex-col md:flex-row md:mx-6">
               <NavLink
-              onClick={() => setIsOpen(!isOpen)}
+                onClick={() => setIsOpen(!isOpen)}
                 className={({ isActive }) =>
                   isActive
                     ? "my-2 p-3 border-2 border-yellow-500 text-yellow-500 font-semibold transition-colors duration-300 transform  hover:text-yellow-500 rounded-md md:mx-4 md:my-0"
-                    : "my-2 text-black hover:border-yellow-500 hover:rounded-md font-semibold border-2 p-3 transition-colors duration-300 transform  hover:text-yellow-500  md:mx-4 md:my-0"
+                    : "my-2 text-black hover:border-yellow-500 rounded-md font-semibold border-2 p-3 transition-colors duration-300 transform  hover:text-yellow-500  md:mx-4 md:my-0"
                 }
                 to="/"
               >
                 Home
               </NavLink>
               <NavLink
-              onClick={() => setIsOpen(!isOpen)}
+                onClick={() => setIsOpen(!isOpen)}
                 className={({ isActive }) =>
                   isActive
                     ? "my-2 p-3 border-2 border-yellow-500 text-yellow-500 font-semibold transition-colors duration-300 transform  hover:text-yellow-500 rounded-md md:mx-4 md:my-0"
-                    : "my-2 text-black hover:border-yellow-500 hover:rounded-md font-semibold border-2 p-3 transition-colors duration-300 transform  hover:text-yellow-500  md:mx-4 md:my-0"
+                    : "my-2 text-black hover:border-yellow-500 rounded-md font-semibold border-2 p-3 transition-colors duration-300 transform  hover:text-yellow-500  md:mx-4 md:my-0"
                 }
                 to="/login"
               >
                 Login
               </NavLink>
               <NavLink
-              onClick={() => setIsOpen(!isOpen)}
+                onClick={() => setIsOpen(!isOpen)}
                 className={({ isActive }) =>
                   isActive
                     ? "my-2 p-3 border-2 border-yellow-500 text-yellow-500 font-semibold transition-colors duration-300 transform  hover:text-yellow-500 rounded-md md:mx-4 md:my-0"
-                    : "my-2 text-black hover:border-yellow-500 hover:rounded-md font-semibold border-2 p-3 transition-colors duration-300 transform  hover:text-yellow-500  md:mx-4 md:my-0"
+                    : "my-2 text-black hover:border-yellow-500 rounded-md font-semibold border-2 p-3 transition-colors duration-300 transform  hover:text-yellow-500  md:mx-4 md:my-0"
                 }
                 to="/register"
               >
