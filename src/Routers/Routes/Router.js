@@ -1,6 +1,7 @@
 import AddServices from "../../Components/Services/AddServices/AddServices";
 import Login from "../../Components/Log/Login/Login";
 import Register from "../../Components/Log/Register/Register";
+import Services from "../../Components/Services/Services/Services";
 
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Home } = require("../../Components/Home/Home/Home");
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
             {
                 path : '/addServices',
                 element : <AddServices></AddServices>
+            },
+            {
+                path : '/services',
+                element : <Services></Services>
             },
         ]
     }

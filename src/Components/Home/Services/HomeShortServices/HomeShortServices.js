@@ -1,11 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const HomeShortServices = () => {
+  // limited services 
+   const [services, setServices] = useState([]);
+  
+  useEffect(()=>{
+    fetch(`http://localhost:5000/services?limited=3`)
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+      setServices(data)
+    })
+    .catch(e => {
+      console.log(e);
+    })
+  },[])
+
+  
+
   return (
-    <div className="cover">
+    <div className="cover text-center">
       <section className="">
         <div className="container px-6 py-10 mx-auto">
-          <h1 className="text-3xl font-semibold text-center text-yellow-800 capitalize lg:text-6xl font-extrabold dark:text-white">
+          <h1 className="text-3xl  text-center text-yellow-800 capitalize lg:text-6xl font-extrabold dark:text-white">
             Services
           </h1>
 
@@ -18,26 +35,37 @@ const HomeShortServices = () => {
           <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-12 md:grid-cols-2 xl:grid-cols-3">
 
             {/* card  */}
-            <div
-              className="overflow-hidden bg-cover bg-[url('https://images.unsplash.com/photo-1621111848501-8d3634f82336?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1565&q=80')] rounded-lg cursor-pointer h-96 group border-2"
-              
-            >
-              <div className="flex flex-col justify-center w-full h-full px-8 py-4 transition-opacity duration-700 opacity-0 backdrop-blur-sm bg-yellow-600/20 group-hover:opacity-100">
-                <h2 className="mt-4 text-2xl font-semibold text-white capitalize">
-                  Best website collections
-                </h2>
-                <p className="mt-2 text-lg tracking-wider text-red-700 uppercase ">
-                  Website
-                </p>
-                <p className="mt-2 text-lg tracking-wider text-white uppercase ">
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae qui possimus ducimus eligendi, aperiam tempora laboriosam soluta aliquam asperiores praesentium. Nemo adipisci aliquam esse? Expedita distinctio dolorem eos autem id?
-                </p>
-              </div>
-            </div>
+            {
+              services.map(service => <div
+              key={service._id}
+                className={`overflow-hidden bg-cover rounded-lg cursor-pointer h-96 group border-2`}
+                style={{backgroundImage: `url(${service.image})`}}
+                
+              >
+                <div className="flex flex-col justify-center w-full h-full px-8 py-4 transition-opacity duration-700 opacity-0 backdrop-blur-sm bg-yellow-600/20 group-hover:opacity-100">
+                  <h2 className="mt-4 text-2xl font-semibold text-white capitalize">
+                    {service?.service_name}
+                  </h2>
+                  {/* <p className="mt-2 text-lg tracking-wider text-red-700 uppercase ">
+                  {service?.service_price}
+                  </p>
+                  <p className="mt-2 text-lg tracking-wider text-red-700 uppercase ">
+                  {service?.quantity}
+                  </p>
+                  <p className="mt-2 text-lg tracking-wider text-red-700 uppercase ">
+                  {service?.service_rating}
+                  </p> */}
+                  <p className="mt-2 text-lg tracking-wider text-white uppercase ">
+                  {service?.description.slice(0,200) + "..."}
+                  </p>
+                </div>
+              </div>)
+            }
 
           </div>
         </div>
       </section>
+      <button className="px-8 py-3 bg-white my-12 shadow-md rounded-md hover:bg-orange-500 hover:text-white text-center mx-auto">See All</button>
     </div>
   );
 };

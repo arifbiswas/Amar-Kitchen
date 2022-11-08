@@ -1,8 +1,8 @@
 import React from 'react';
-import Footer from '../../Footer/Footer';
+
 import BannerSection from '../BannerSection/BannerSection';
 import HomeShortServices from '../Services/HomeShortServices/HomeShortServices';
-import SiteActivitys from '../Services/SiteActivitys/SiteActivitys';
+import SiteActivitys from '../SiteActivitys/SiteActivitys';
 
 import './Home.css'
 
