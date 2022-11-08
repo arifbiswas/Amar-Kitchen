@@ -17,17 +17,11 @@ const BannerSection = () => {
             <div className="space-x-2 text-center py-2 lg:py-0">
               <span>Plus Special Soup is free!</span>
               <div className="flex justify-center items-center">
-              <span className="font-bold text-lg">Go There</span>
+              <span className="font-bold text-lg">visit services</span>
               <FaArrowRight></FaArrowRight>
               </div>
             </div>
-            <button
-              
-              rel="noreferrer noopener"
-              className="px-5 mt-4 lg:mt-0 py-3 rounded-md border block bg-gradient-to-r from-orange-500 to-yellow-400  text-white font-bold dark:border-white"
-            >
-              Services
-            </button>
+           
           </div>
         </div>
       </div>

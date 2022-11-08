@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const HomeShortServices = () => {
   // limited services 
@@ -16,7 +17,8 @@ const HomeShortServices = () => {
     })
   },[])
 
-  
+  const navigate = useNavigate();
+
 
   return (
     <div className="cover text-center">
@@ -65,7 +67,9 @@ const HomeShortServices = () => {
           </div>
         </div>
       </section>
-      <button className="px-8 py-3 bg-white my-12 shadow-md rounded-md hover:bg-orange-500 hover:text-white text-center mx-auto">See All</button>
+      <button
+      onClick={()=>navigate("/services")}
+      className="px-8 py-3  bg-gradient-to-r from-orange-500 to-yellow-400 my-12 shadow-md rounded-md hover:bg-orange-500 font-bold text-white text-center mx-auto">See All</button>
     </div>
   );
 };
