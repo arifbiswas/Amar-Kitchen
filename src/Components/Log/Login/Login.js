@@ -1,8 +1,16 @@
-import React, { useEffect, useState } from "react";
+import { GoogleAuthProvider } from "firebase/auth";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import banner from "../../../Assets/loginBanner.svg";
+import { AuthProvider } from "../../../Contexts/AuthContext/AuthContext";
 
 const Login = () => {
+  // use context api 
+  const {googleWithLogin} = useContext(AuthProvider);
+  // Google Auth Provider  
+  const googleAuthProvider = new GoogleAuthProvider();
+
+  // Register User input information 
   const [userInfo, setUserInfo] = useState({});
 
   // form On submite
@@ -10,6 +18,17 @@ const Login = () => {
     e.preventDefault();
     console.log(userInfo);
   };
+  // Login With Google pop up 
+  const handleLoginWithGoogle =()=>{
+    googleWithLogin(googleAuthProvider)
+    .then(result => {
+      const googleUser = result.user;
+      console.log(googleUser);
+    })
+    .catch(e => {
+      console.log(e);
+    })
+  }
   return (
     <div className="flex justify-center items-center w-[100%]  h-[100vh]">
       <div className="bg-white  ">
@@ -28,9 +47,9 @@ const Login = () => {
                 </p>
               </div>
               <div>
-                <a
-                  href="#"
-                  className="flex items-center justify-center px-6 py-3 mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg dark:border-gray-700 hover:text-white hover:bg-gray-50 dark:hover:bg-gray-600 text-black "
+                <button
+                 onClick={handleLoginWithGoogle}
+                  className="flex items-center justify-center px-6 py-3 mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg dark:border-gray-700 hover:text-white hover:bg-gray-50 dark:hover:bg-gray-600 text-black  w-full"
                 >
                   <svg className="w-6 h-6 mx-2" viewBox="0 0 40 40">
                     <path
@@ -53,7 +72,7 @@ const Login = () => {
 
                   <span className="mx-2">Login with Google</span>
                   
-                </a>
+                </button>
                 
               </div>
               <div className="mt-8">

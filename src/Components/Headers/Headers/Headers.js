@@ -1,9 +1,24 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FaDumpsterFire } from "react-icons/fa";
+import { AuthProvider } from "../../../Contexts/AuthContext/AuthContext";
 
 const Headers = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const {user,logOut} = useContext(AuthProvider);
+
+
+  // LogOut handle 
+  const handleLogOut =() =>{
+    logOut()
+    .then(result =>{
+      console.log(result);
+    })
+    .catch(e => {
+      console.log(e);
+    })
+  }
+
   return (
     <div>
       <nav className="relative bg-white shadow  text-black">
@@ -84,7 +99,24 @@ const Headers = () => {
               >
                 Home
               </NavLink>
-              <NavLink
+              {
+                user?.email 
+                
+                ? 
+                <>
+                 <button
+                onChange={() => setIsOpen(!isOpen)}
+                onClick={handleLogOut}
+                className={"my-2 text-black hover:border-yellow-500 rounded-md font-semibold border-2 p-3 transition-colors duration-300 transform  hover:text-yellow-500  md:mx-4 md:my-0"
+                }
+                
+              >
+                LogOut
+              </button>
+                </>
+                :
+                <>
+                <NavLink
                 onClick={() => setIsOpen(!isOpen)}
                 className={({ isActive }) =>
                   isActive
@@ -106,6 +138,10 @@ const Headers = () => {
               >
                 Register
               </NavLink>
+                </>
+              }
+              
+             
             </div>
           </div>
         </div>

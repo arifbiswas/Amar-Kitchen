@@ -1,17 +1,47 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import app from '../../Firebase/FirebaseConfig';
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from "firebase/auth";
 
-const AuthProvider = createContext();
+export const AuthProvider = createContext();
 
 const auth = getAuth(app);
 
 const AuthContext = ({children}) => {
     const [user , setUser ] = useState(null)
+    const [loading , setLoading ] = useState(true);
 
+    // create User with email password 
+    const createUserWithEmailPass = (email ,password ) =>{
+        return createUserWithEmailAndPassword(auth,email,password)
+    }
+
+    // Login with email password 
+    const loginWithEmailPass = (email , password ) =>{
+        return signInWithEmailAndPassword(auth ,email ,password)
+    }
+
+    // Google with Login 
+    const googleWithLogin =(googleAuthProvider)=>{
+        return signInWithPopup(auth,googleAuthProvider)
+    }
+
+    // LogOut 
+    const logOut =() =>{
+        return signOut(auth)
+    }
+
+    // User State Auth 
+    useEffect(()=>{
+        const unsubscribe = onAuthStateChanged(auth,currentUser =>{
+            setUser(currentUser);
+            console.log("On state change on user " , currentUser);
+        })
+    },[])
 
     const UserInfo = {
-
+        user,
+        googleWithLogin,
+        logOut,
 
     }
     return (
