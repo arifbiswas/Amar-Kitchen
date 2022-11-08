@@ -1,3 +1,4 @@
+import AddServices from "../../Components/Home/Services/AddServices/AddServices";
 import Login from "../../Components/Log/Login/Login";
 import Register from "../../Components/Log/Register/Register";
 
@@ -27,8 +28,8 @@ const router = createBrowserRouter([
                 element : <Register></Register>
             },
             {
-                // path : '/',
-                // element : <Home></Home>
+                path : '/addServices',
+                element : <AddServices></AddServices>
             },
         ]
     }

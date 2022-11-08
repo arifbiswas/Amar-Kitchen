@@ -1,0 +1,46 @@
+.cover {
+    background: url('../../../Assets/HomeImges/hoveCover5.jpg') no-repeat;
+    background-size: 100vw; 
+    /* float: left; */
+    border-radius: 10px;
+    height: 70%;
+    width: 100%;
+    
+    
+} 
+.cover2 {
+    background: url('../../../Assets/HomeImges/homeCover1.jpg') no-repeat;
+    background-size: 100vw; 
+    /* float: left; */
+    border-radius: 10px;
+    height: 70%;
+    width: 100%;
+    
+} 
+.cover3 {
+    background: url('../../../Assets/HomeImges/homeCover2.jpg') no-repeat;
+    background-size: 100vw; 
+    /* float: left; */
+    border-radius: 10px;
+    height: 70%;
+    width: 100%;
+    
+} 
+.cover4 {
+    background: url('../../../Assets/HomeImges/homeCover3.jpg') no-repeat;
+    background-size: 100vw; 
+    /* float: left; */
+    border-radius: 10px;
+    height: 70%;
+    width: 100%;
+    
+} 
+.cover5 {
+    background: url('../../../Assets/HomeImges/homeCover4.jpg') no-repeat;
+    background-size: 100vw; 
+    /* float: left; */
+    border-radius: 10px;
+    height: 70%;
+    width: 100%;
+    
+} 

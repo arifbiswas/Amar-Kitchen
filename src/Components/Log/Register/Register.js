@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import banner from '../../../Assets/registerBanner.svg'
+import banner from '../../../Assets/LogImages/registerBanner.svg'
 
 const Register = () => {
     const [userInfo ,setUserInfo ] = useState({})

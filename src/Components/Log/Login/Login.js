@@ -1,7 +1,7 @@
 import { GoogleAuthProvider } from "firebase/auth";
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import banner from "../../../Assets/loginBanner.svg";
+import banner from "../../../Assets/LogImages/loginBanner.svg";
 import { AuthProvider } from "../../../Contexts/AuthContext/AuthContext";
 
 const Login = () => {

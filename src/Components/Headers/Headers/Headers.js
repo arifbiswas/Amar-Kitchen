@@ -5,19 +5,18 @@ import { AuthProvider } from "../../../Contexts/AuthContext/AuthContext";
 
 const Headers = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const {user,logOut} = useContext(AuthProvider);
+  const { user, logOut } = useContext(AuthProvider);
 
-
-  // LogOut handle 
-  const handleLogOut =() =>{
+  // LogOut handle
+  const handleLogOut = () => {
     logOut()
-    .then(result =>{
-      console.log(result);
-    })
-    .catch(e => {
-      console.log(e);
-    })
-  }
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
 
   return (
     <div>
@@ -84,7 +83,7 @@ const Headers = () => {
             className={
               isOpen
                 ? ` left-0  absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white  md:mt-0 md:p-0 md:top-0 md:relative  md:bg-transparent md:w-auto md:opacity-100 md:translate-x-0 md:flex md:items-center`
-                : ` left-[-400px] lg:left-0 absolute lg:static inset-x-0 z-20 w-full  px-6 py-4 transition-all duration-300 ease-in-out bg-white  md:mt-0 md:p-0 md:top-0 md:relative md:bg-transparent md:w-auto md:opacity-100 md:translate-x-0 md:flex md:items-center`
+                : ` left-[-450px] lg:left-0 absolute lg:static inset-x-0 z-20 w-full  px-6 py-4 transition-all duration-300 ease-in-out bg-white  md:mt-0 md:p-0 md:top-0 md:relative md:bg-transparent md:w-auto md:opacity-100 md:translate-x-0 md:flex md:items-center`
             }
           >
             <div className="flex flex-col md:flex-row md:mx-6">
@@ -99,34 +98,6 @@ const Headers = () => {
               >
                 Home
               </NavLink>
-              {
-                user?.email 
-                
-                ? 
-                <>
-                 <button
-                onChange={() => setIsOpen(!isOpen)}
-                onClick={handleLogOut}
-                className={"my-2 text-black hover:border-yellow-500 rounded-md font-semibold border-2 p-3 transition-colors duration-300 transform  hover:text-yellow-500  md:mx-4 md:my-0"
-                }
-                
-              >
-                LogOut
-              </button>
-                </>
-                :
-                <>
-                <NavLink
-                onClick={() => setIsOpen(!isOpen)}
-                className={({ isActive }) =>
-                  isActive
-                    ? "my-2 p-3 border-2 border-yellow-500 text-yellow-500 font-semibold transition-colors duration-300 transform  hover:text-yellow-500 rounded-md md:mx-4 md:my-0"
-                    : "my-2 text-black hover:border-yellow-500 rounded-md font-semibold border-2 p-3 transition-colors duration-300 transform  hover:text-yellow-500  md:mx-4 md:my-0"
-                }
-                to="/login"
-              >
-                Login
-              </NavLink>
               <NavLink
                 onClick={() => setIsOpen(!isOpen)}
                 className={({ isActive }) =>
@@ -134,14 +105,60 @@ const Headers = () => {
                     ? "my-2 p-3 border-2 border-yellow-500 text-yellow-500 font-semibold transition-colors duration-300 transform  hover:text-yellow-500 rounded-md md:mx-4 md:my-0"
                     : "my-2 text-black hover:border-yellow-500 rounded-md font-semibold border-2 p-3 transition-colors duration-300 transform  hover:text-yellow-500  md:mx-4 md:my-0"
                 }
-                to="/register"
+                to="/addServices"
               >
-                Register
+                Add Services
               </NavLink>
+              {user?.email ? (
+                <>
+                  <button
+                    onChange={() => setIsOpen(!isOpen)}
+                    onClick={handleLogOut}
+                    className={
+                      "my-2 text-black hover:border-yellow-500 rounded-md font-semibold border-2 p-3 transition-colors duration-300 transform  hover:text-yellow-500  md:mx-4 md:my-0"
+                    }
+                  >
+                    LogOut
+                  </button>
                 </>
-              }
-              
-             
+              ) : (
+                <>
+                  <NavLink
+                    onClick={() => setIsOpen(!isOpen)}
+                    className={({ isActive }) =>
+                      isActive
+                        ? "my-2 p-3 border-2 border-yellow-500 text-yellow-500 font-semibold transition-colors duration-300 transform  hover:text-yellow-500 rounded-md md:mx-4 md:my-0"
+                        : "my-2 text-black hover:border-yellow-500 rounded-md font-semibold border-2 p-3 transition-colors duration-300 transform  hover:text-yellow-500  md:mx-4 md:my-0"
+                    }
+                    to="/login"
+                  >
+                    Login
+                  </NavLink>
+                  <NavLink
+                    onClick={() => setIsOpen(!isOpen)}
+                    className={({ isActive }) =>
+                      isActive
+                        ? "my-2 p-3 border-2 border-yellow-500 text-yellow-500 font-semibold transition-colors duration-300 transform  hover:text-yellow-500 rounded-md md:mx-4 md:my-0"
+                        : "my-2 text-black hover:border-yellow-500 rounded-md font-semibold border-2 p-3 transition-colors duration-300 transform  hover:text-yellow-500  md:mx-4 md:my-0"
+                    }
+                    to="/register"
+                  >
+                    Register
+                  </NavLink>
+                </>
+              )}
+
+             {
+              user?.photoURL &&  <div className="relative flex-shrink-0 hidden lg:block">
+              <span className="absolute bottom-0 right-0 w-4 h-4 dark:bg-green-600 border rounded-full dark:text-gray-100 border-gray-900"></span>
+              <img
+                src={user?.photoURL}
+                alt=""
+                className="w-12 h-12 border rounded-full  dark:border-gray-700"
+              />
+            </div>
+            
+             }
             </div>
           </div>
         </div>
