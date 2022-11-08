@@ -116,9 +116,31 @@ const Headers = () => {
                     ? "my-2 p-3 border-2 border-yellow-500 text-yellow-500 font-semibold transition-colors duration-300 transform  hover:text-yellow-500 rounded-md md:mx-4 md:my-0"
                     : "my-2 text-black hover:border-yellow-500 rounded-md font-semibold border-2 p-3 transition-colors duration-300 transform  hover:text-yellow-500  md:mx-4 md:my-0"
                 }
+                to="/myReviews"
+              >
+                My reviews
+              </NavLink>
+              <NavLink
+                onClick={() => setIsOpen(!isOpen)}
+                className={({ isActive }) =>
+                  isActive
+                    ? "my-2 p-3 border-2 border-yellow-500 text-yellow-500 font-semibold transition-colors duration-300 transform  hover:text-yellow-500 rounded-md md:mx-4 md:my-0"
+                    : "my-2 text-black hover:border-yellow-500 rounded-md font-semibold border-2 p-3 transition-colors duration-300 transform  hover:text-yellow-500  md:mx-4 md:my-0"
+                }
                 to="/addServices"
               >
                 Add Services
+              </NavLink>
+              <NavLink
+                onClick={() => setIsOpen(!isOpen)}
+                className={({ isActive }) =>
+                  isActive
+                    ? "my-2 p-3 border-2 border-yellow-500 text-yellow-500 font-semibold transition-colors duration-300 transform  hover:text-yellow-500 rounded-md md:mx-4 md:my-0"
+                    : "my-2 text-black hover:border-yellow-500 rounded-md font-semibold border-2 p-3 transition-colors duration-300 transform  hover:text-yellow-500  md:mx-4 md:my-0"
+                }
+                to="/blogs"
+              >
+                Blogs
               </NavLink>
               
               {user?.email ? (
