@@ -1,14 +1,36 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import banner from '../../../Assets/LogImages/registerBanner.svg'
+import { AuthProvider } from '../../../Contexts/AuthContext/AuthContext';
 
 const Register = () => {
-    const [userInfo ,setUserInfo ] = useState({})
+    const [userInfo ,setUserInfo  ] = useState({})
+    const {createUserWithEmailPass , updateUserProfile} = useContext(AuthProvider);
 
     // form On submite 
   const handleSubmit = (e) =>{
         e.preventDefault()
         console.log(userInfo);
+        createUserWithEmailPass(userInfo.email ,userInfo.password)
+        .then(result =>{
+          const currentUser = result.user;
+          console.log(currentUser);
+          handleUpdateUserProfile()
+        })
+        .catch(e => {
+          console.log(e);
+        })
+  }
+   
+  // Update user profile handler
+  const handleUpdateUserProfile =()=>{
+     updateUserProfile(userInfo.name,userInfo.photoURL)
+      .then(() => {
+      
+      })
+      .catch(e => {
+        console.log(e);
+      })
   }
 
     return (

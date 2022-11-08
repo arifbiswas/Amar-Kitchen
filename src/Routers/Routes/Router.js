@@ -1,4 +1,4 @@
-import AddServices from "../../Components/Home/Services/AddServices/AddServices";
+import AddServices from "../../Components/Services/AddServices/AddServices";
 import Login from "../../Components/Log/Login/Login";
 import Register from "../../Components/Log/Register/Register";
 

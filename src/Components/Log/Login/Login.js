@@ -6,7 +6,7 @@ import { AuthProvider } from "../../../Contexts/AuthContext/AuthContext";
 
 const Login = () => {
   // use context api 
-  const {googleWithLogin} = useContext(AuthProvider);
+  const {googleWithLogin,loginWithEmailPass} = useContext(AuthProvider);
   // Google Auth Provider  
   const googleAuthProvider = new GoogleAuthProvider();
 
@@ -17,6 +17,16 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(userInfo);
+
+    // loginWithEmailPass
+    loginWithEmailPass(userInfo.email , userInfo.password)
+    .then( result =>{
+      const currentUser = result.user;
+      console.log(currentUser);
+    })
+    .catch(e => {
+      console.log(e);
+    })
   };
   // Login With Google pop up 
   const handleLoginWithGoogle =()=>{
