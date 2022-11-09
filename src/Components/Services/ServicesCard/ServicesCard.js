@@ -222,7 +222,7 @@ const ServicesCard = ({service}) => {
               to={`/services/${_id}`}
               className="text-white bottom-5 left-0 bg-yellow-500 hover:bg-yellow-600 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm w-full py-2.5 text-center "
             >
-              Review
+              Details
             </Link>
           </div>
         </div>

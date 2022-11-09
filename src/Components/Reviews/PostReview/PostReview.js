@@ -1,12 +1,10 @@
 import React, { useContext, useState } from "react";
 import { AuthProvider } from "../../../Contexts/AuthContext/AuthContext";
 
-const PostReview = ({ service }) => {
+const PostReview = ({ service, setReviews, reviews }) => {
   const { user } = useContext(AuthProvider);
-  const [postReview, setPostReview] = useState({});
+  // const [postReview, setPostReview] = useState({});
 
-  
- 
     const time = new Date().toLocaleTimeString();
     const day = new Date().toDateString();
   
@@ -17,7 +15,7 @@ const PostReview = ({ service }) => {
     const start = form.start.value;
     const userReview = form.userReview.value;
     const postReviewWithUserInfo = {
-      ...postReview,
+      // ...postReview,
       userImage: user?.photoURL,
       userEmail: user?.email,
        userName,
@@ -29,26 +27,28 @@ const PostReview = ({ service }) => {
      start,
      userReview
     };
+    // setPostReview(postReviewWithUserInfo)
+    setReviews([...reviews, postReviewWithUserInfo])
     console.log(postReviewWithUserInfo);
 
-    // fetch("http://localhost:5000/reviews",{
-    //     method : "POST",
-    //     headers : {
-    //         "content-type" : "application/json"
-    //     },
-    //     body : JSON.stringify(postReviewWithUserInfo)
-    // })
-    // .then(res => res.json())
-    // .then(data =>{
-    //     form.reset();
-    //     console.log(data)
-    //     if(data.acknowledged){
-    //         alert("Reviews is Send")
-    //     }
-    // })
-    // .catch(e => {
-    //     console.log(e);
-    // })
+    fetch("http://localhost:5000/reviews",{
+        method : "POST",
+        headers : {
+            "content-type" : "application/json"
+        },
+        body : JSON.stringify(postReviewWithUserInfo)
+    })
+    .then(res => res.json())
+    .then(data =>{
+        form.reset();
+        console.log(data)
+        if(data.acknowledged){
+            alert("Reviews is Send")
+        }
+    })
+    .catch(e => {
+        console.log(e);
+    })
   };
 
   return (

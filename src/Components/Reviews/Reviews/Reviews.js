@@ -272,7 +272,7 @@ const Reviews = () => {
       </div>
       <div className="shadow-lg shadow-transparent py-8 my-8 mx-auto border-2 rounded-md">
      
-         <PostReview service={service}></PostReview>
+        <PostReview service={service} setReviews={setReviews} reviews={reviews}></PostReview>
         <div className="my-5">
             {
                 reviews.map(review => <ReviewUserCard 
