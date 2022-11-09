@@ -1,33 +1,36 @@
 import React, { useContext, useState } from "react";
+import { toast } from "react-toastify";
 import { AuthProvider } from "../../../Contexts/AuthContext/AuthContext";
+import 'react-toastify/dist/ReactToastify.css';
 
 const PostReview = ({ service, setReviews, reviews }) => {
   const { user } = useContext(AuthProvider);
-  // const [postReview, setPostReview] = useState({});
 
-    const time = new Date().toLocaleTimeString();
-    const day = new Date().toDateString();
+    const postDate = new Date();
+    const postDay = new Date().toDateString();
+    const postTime = new Date().toLocaleTimeString();
   
   const handlePostReviews = (e) => {
     e.preventDefault();
     const form = e.target;
     const userName = form.userName.value;
-    const start = form.start.value;
+    const star = form.star.value;
     const userReview = form.userReview.value;
+
     const postReviewWithUserInfo = {
-      // ...postReview,
       userImage: user?.photoURL,
       userEmail: user?.email,
        userName,
       service_id: service._id,
-     postTime: time,
-     postDay : day,
+     postDay ,
+     postDate,
+     postTime,
      service_name: service.service_name,
      service_image: service.image,
-     start,
+     star,
      userReview
     };
-    // setPostReview(postReviewWithUserInfo)
+    
     setReviews([...reviews, postReviewWithUserInfo])
     console.log(postReviewWithUserInfo);
 
@@ -41,9 +44,9 @@ const PostReview = ({ service, setReviews, reviews }) => {
     .then(res => res.json())
     .then(data =>{
         form.reset();
-        console.log(data)
+        // console.log(data)
         if(data.acknowledged){
-            alert("Reviews is Send")
+          toast.success("Reviews is Send Successfully")
         }
     })
     .catch(e => {
@@ -81,22 +84,22 @@ const PostReview = ({ service, setReviews, reviews }) => {
               />
             </div>
             <div className="flex flex-col ">
-              <label htmlFor="start" className="text-gray-700 mb-2 ">
+              <label htmlFor="star" className="text-gray-700 mb-2 ">
                 Select Star
               </label>
               <select
-                name="start"
-                id="start"
+                name="star"
+                id="star"
                 className="py-2 px-2 bg-white border border-gray-300"
               >
-                <option value="1">1 Start</option>
-                <option value="2">2 Start</option>
-                <option value="3">3 Start</option>
-                <option value="3.5">3.5 Start</option>
-                <option value="4">4 Start</option>
-                <option value="4.5">4.5 Start</option>
+                <option value="1">1 Star</option>
+                <option value="2">2 Star</option>
+                <option value="3">3 Star</option>
+                <option value="3.5">3.5 Star</option>
+                <option value="4">4 Star</option>
+                <option value="4.5">4.5 Star</option>
                 <option value="5" selected>
-                  5 Start
+                  5 Star
                 </option>
               </select>
             </div>
@@ -114,7 +117,7 @@ const PostReview = ({ service, setReviews, reviews }) => {
             />
           </div>
           <div class="flex justify-end mt-6">
-            <button class="px-8 w-full py-5 leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
+            <button class="px-8 w-full py-5 leading-5 text-gray-700 transition-colors duration-300 transform bg-white hover:text-yellow-500 text-1xl rounded-md  border-4 hover:border-yellow-500 font-semibold">
               Send Review
             </button>
           </div>

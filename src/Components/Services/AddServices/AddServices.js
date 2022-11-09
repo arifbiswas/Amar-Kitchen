@@ -42,7 +42,7 @@ const AddServices = () => {
                 onBlur={(e)=>setService({...service,service_name:e.target.value})}
                 id="username"
                 type="text"
-                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border-2 border-gray-300 rounded-md    focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
+                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border-2 border-gray-300 rounded-md    focus:border-yellow-400 focus:ring-yellow-300 focus:ring-opacity-40  focus:outline-none focus:ring"
               />
             </div>
 
@@ -57,7 +57,7 @@ const AddServices = () => {
               onBlur={(e)=>setService({...service,service_price:e.target.value})}
                 id="emailAddress"
                 type="number"
-                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border-2 border-gray-300 rounded-md    focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
+                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border-2 border-gray-300 rounded-md    focus:border-yellow-400 focus:ring-yellow-300 focus:ring-opacity-40  focus:outline-none focus:ring"
               />
             </div>
             <div>
@@ -71,7 +71,7 @@ const AddServices = () => {
               onBlur={(e)=>setService({...service,quantity:e.target.value})}
                 id="emailAddress"
                 type="number"
-                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border-2 border-gray-300 rounded-md    focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
+                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border-2 border-gray-300 rounded-md    focus:border-yellow-400 focus:ring-yellow-300 focus:ring-opacity-40  focus:outline-none focus:ring"
               />
             </div>
 
@@ -83,7 +83,7 @@ const AddServices = () => {
               onBlur={(e)=>setService({...service,service_rating:e.target.value})}
                 id="password"
                 type="text"
-                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border-2 border-gray-300 rounded-md    focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
+                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border-2 border-gray-300 rounded-md    focus:border-yellow-400 focus:ring-yellow-300 focus:ring-opacity-40  focus:outline-none focus:ring"
               />
             </div>
             <div>
@@ -94,7 +94,7 @@ const AddServices = () => {
               onBlur={(e)=>setService({...service,cooked_duration:e.target.value})}
                 id="password"
                 type="number"
-                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border-2 border-gray-300 rounded-md    focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
+                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border-2 border-gray-300 rounded-md    focus:border-yellow-400 focus:ring-yellow-300 focus:ring-opacity-40  focus:outline-none focus:ring"
               />
             </div>
             <div>
@@ -108,7 +108,7 @@ const AddServices = () => {
               onBlur={(e)=>setService({...service,image:e.target.value})}
                 id="passwordConfirmation"
                 type="text"
-                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border-2 border-gray-300 rounded-md    focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
+                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border-2 border-gray-300 rounded-md    focus:border-yellow-400 focus:ring-yellow-300 focus:ring-opacity-40  focus:outline-none focus:ring"
               />
             </div>
 
@@ -127,14 +127,14 @@ const AddServices = () => {
               onBlur={(e)=>setService({...service,description:e.target.value})}
                 id="passwordConfirmation"
                 type="text"
-                className="block w-full h-96 py-5  text-gray-900 bg-white border-2 border-gray-300 rounded-md    focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
+                className="block w-full h-96 py-5  text-gray-900 bg-white border-2 border-gray-300 rounded-md    focus:border-yellow-400 focus:ring-yellow-300 focus:ring-opacity-40  focus:outline-none focus:ring"
               />
             </div>
 
           <div className="flex justify-end mt-6">
             <button
             type="submit"
-            className="px-8 py-3 w-full leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-900 focus:outline-none focus:bg-gray-900">
+            className="px-8 w-full py-5 leading-5 text-black transition-colors duration-300 transform bg-white hover:text-yellow-500 text-1xl rounded-md  border-4 hover:border-yellow-500 focus:bg-gray-600">
               Save
             </button>
           </div>

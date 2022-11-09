@@ -7,6 +7,10 @@ export const AuthProvider = createContext();
 const auth = getAuth(app);
 
 const AuthContext = ({children}) => {
+
+    // Modal Controll 
+    const [openModal , setOpenModal] = useState(false);
+
     const [user , setUser ] = useState(null)
     const [loading , setLoading ] = useState(true);
 
@@ -50,6 +54,8 @@ const AuthContext = ({children}) => {
         createUserWithEmailPass,
         updateUserProfile,
         loginWithEmailPass,
+        openModal , 
+        setOpenModal,
 
     }
     return (

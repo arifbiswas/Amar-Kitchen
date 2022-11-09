@@ -21,7 +21,7 @@ const Reviews = () => {
 //   review loaded api 
   const [reviews , setReviews] = useState([])
   useEffect(()=>{
-    fetch(`http://localhost:5000/reviews/${_id}`)
+    fetch(`http://localhost:5000/reviews?service_id=${_id}`)
     .then(res => res.json())
     .then(data => {
         console.log(data);
@@ -31,6 +31,10 @@ const Reviews = () => {
         console.log(e);
     })
   },[_id])
+
+
+  reviews.sort(function(a, b) { return new Date(b.postDate) - new Date(a.postDate) })
+
   return (
     <div>
       <div>
