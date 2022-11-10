@@ -6,6 +6,7 @@ import Reviews from "../../Components/Reviews/Reviews/Reviews";
 import MyReviews from "../../Components/Reviews/MyReviews/MyReviews/MyReviews";
 import ReviewUpdate from "../../Components/Reviews/ReviewUpdate/ReviewUpdate";
 import Blogs from "../../Components/Blogs/Blogs";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Home } = require("../../Components/Home/Home/Home");
@@ -34,7 +35,7 @@ const router = createBrowserRouter([
             },
             {
                 path : '/addServices',
-                element : <AddServices></AddServices>
+                element : <PrivateRoute><AddServices></AddServices></PrivateRoute>
             },
             {
                 path : '/services',
@@ -42,16 +43,16 @@ const router = createBrowserRouter([
             },
             {
                 path : '/services/:id',
-                element : <Reviews></Reviews>,
-                loader : ({params})=> fetch(`http://localhost:5000/services/${params.id}`)
+                element : <PrivateRoute><Reviews></Reviews></PrivateRoute>,
+                loader : ({params})=> fetch(`https://ass-11-amar-kitchen-server-arifbiswas.vercel.app/services/${params.id}`)
             },
             {
                 path : '/myReviews',
-                element : <MyReviews></MyReviews>
+                element : <PrivateRoute><MyReviews></MyReviews></PrivateRoute>
             },
             {
                 path : '/myReviews/:id',
-                element : <ReviewUpdate></ReviewUpdate>
+                element : <PrivateRoute><ReviewUpdate></ReviewUpdate></PrivateRoute>
             },
             {
                 path : '/blogs',

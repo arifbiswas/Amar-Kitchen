@@ -10,7 +10,7 @@ const ReviewUpdate = () => {
   const { id } = useParams();
   console.log(id);
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews/${id}`)
+    fetch(`https://ass-11-amar-kitchen-server-arifbiswas.vercel.app/reviews/${id}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -31,7 +31,7 @@ const ReviewUpdate = () => {
     const userReview =form.userReview.value;
     const updateReview = {star ,userReview}
     // console.log(newReview);
-    fetch(`http://localhost:5000/reviews/${_id}`,{
+    fetch(`https://ass-11-amar-kitchen-server-arifbiswas.vercel.app/reviews/${_id}`,{
         method : "PATCH",
         headers : {
             "content-type" : "application/json"

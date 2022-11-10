@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import banner from '../../../Assets/LogImages/registerBanner.svg'
 import { AuthProvider } from '../../../Contexts/AuthContext/AuthContext';
 
@@ -7,18 +8,46 @@ const Register = () => {
     const [userInfo ,setUserInfo  ] = useState({})
     const {createUserWithEmailPass , updateUserProfile} = useContext(AuthProvider);
 
+    const navigate = useNavigate();
+   const location = useLocation();
+   const from = location?.state?.from?.pathname || "/home";
+
     // form On submite 
   const handleSubmit = (e) =>{
         e.preventDefault()
         console.log(userInfo);
+        if(!/(?=.{8,})/.test(userInfo.password)){
+          return toast.error("The password must be eight characters or longer")
+        }
         createUserWithEmailPass(userInfo.email ,userInfo.password)
         .then(result =>{
           const currentUser = result.user;
+          navigate(from , {replace :true})
           console.log(currentUser);
           handleUpdateUserProfile()
+          const authorizedEmail = {
+            email : currentUser.email
+          }
+          // get json web Token 
+          fetch('https://ass-11-amar-kitchen-server-arifbiswas.vercel.app/jwt',{
+            method : "POST",
+            headers : {
+              "content-type" : "application/json"
+            },
+            body : JSON.stringify(authorizedEmail)
+          })
+          .then(res => res.json())
+          .then(data => {
+            console.log(data);
+            localStorage.setItem("auth-token",JSON.stringify(data.token))
+          })
+          .catch(e => {
+            console.log(e);
+          })
         })
         .catch(e => {
           console.log(e);
+          toast.error(e.message)
         })
   }
    
@@ -30,6 +59,7 @@ const Register = () => {
       })
       .catch(e => {
         console.log(e);
+        toast.error(e.message)
       })
   }
 

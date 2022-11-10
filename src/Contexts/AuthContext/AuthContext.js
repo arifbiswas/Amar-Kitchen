@@ -7,30 +7,30 @@ export const AuthProvider = createContext();
 const auth = getAuth(app);
 
 const AuthContext = ({children}) => {
-
-    // Modal Controll 
-    const [openModal , setOpenModal] = useState(false);
-
     const [user , setUser ] = useState(null)
     const [loading , setLoading ] = useState(true);
 
     // create User with email password 
     const createUserWithEmailPass = (email ,password ) =>{
+        setLoading(true)
         return createUserWithEmailAndPassword(auth,email,password)
     }
 
     // Login with email password 
     const loginWithEmailPass = (email , password ) =>{
+        setLoading(true)
         return signInWithEmailAndPassword(auth ,email ,password)
     }
 
     // Update user profile name and image 
     const updateUserProfile = (displayName , photoURL)=>{
+        setLoading(true)
         return updateProfile(auth.currentUser,{displayName,photoURL})
     }
 
     // Google with Login 
     const googleWithLogin =(googleAuthProvider)=>{
+        setLoading(true)
         return signInWithPopup(auth,googleAuthProvider)
     }
 
@@ -43,6 +43,7 @@ const AuthContext = ({children}) => {
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth,currentUser =>{
             setUser(currentUser);
+            setLoading(false);
             console.log("On state change on user " , currentUser);
         })
     },[])
@@ -54,9 +55,7 @@ const AuthContext = ({children}) => {
         createUserWithEmailPass,
         updateUserProfile,
         loginWithEmailPass,
-        openModal , 
-        setOpenModal,
-
+        loading,
     }
     return (
         <div>

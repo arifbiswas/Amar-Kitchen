@@ -12,7 +12,7 @@ const MyReviews = () => {
     myReviews.sort(function(a, b) { return new Date(b.postDate) - new Date(a.postDate) })
     
     useEffect(()=>{
-        fetch(`http://localhost:5000/reviews/?userEmail=${user?.email}`)
+        fetch(`https://ass-11-amar-kitchen-server-arifbiswas.vercel.app/reviews/?userEmail=${user?.email}`)
         .then(res => res.json())
         .then(data => {
             console.log(data);

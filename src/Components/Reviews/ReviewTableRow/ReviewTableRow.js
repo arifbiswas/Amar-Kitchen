@@ -11,7 +11,7 @@ const ReviewTableRow = ({ myReview, myReviews, setMyReviews,serial }) => {
   const handleDelete = () => {
    const confirm = window.confirm("Delete this Review")
    if(confirm){
-    fetch(`http://localhost:5000/reviews/${myReview._id}`, {
+    fetch(`https://ass-11-amar-kitchen-server-arifbiswas.vercel.app/reviews/${myReview._id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -41,7 +41,7 @@ const ReviewTableRow = ({ myReview, myReviews, setMyReviews,serial }) => {
           <img
             class="w-32 mx-auto h-32 rounded"
             src={myReview.service_image}
-            alt="Jese image"
+            alt=""
           />
         </td>
         <th
@@ -72,7 +72,7 @@ const ReviewTableRow = ({ myReview, myReviews, setMyReviews,serial }) => {
                 ? myReview.userReview.slice(0, 100) + "..."
                 : myReview.userReview}
             </div>
-            {/* <div class="font-normal text-gray-500">{myReview.userReview}</div> */}
+            
           </div>
         </td>
         <td class="py-4 px-6 text-center">

@@ -1,6 +1,7 @@
 import { GoogleAuthProvider } from "firebase/auth";
 import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import banner from "../../../Assets/LogImages/loginBanner.svg";
 import { AuthProvider } from "../../../Contexts/AuthContext/AuthContext";
 
@@ -12,6 +13,9 @@ const Login = () => {
 
   // Register User input information 
   const [userInfo, setUserInfo] = useState({});
+   const navigate = useNavigate();
+   const location = useLocation();
+   const from = location?.state?.from?.pathname || "/home";
 
   // form On submite
   const handleSubmit = (e) => {
@@ -23,9 +27,11 @@ const Login = () => {
     .then( result =>{
       const currentUser = result.user;
       console.log(currentUser);
+      navigate(from , {replace :true})
     })
     .catch(e => {
       console.log(e);
+      toast.error(e.message)
     })
   };
   // Login With Google pop up 
@@ -33,10 +39,31 @@ const Login = () => {
     googleWithLogin(googleAuthProvider)
     .then(result => {
       const googleUser = result.user;
+      navigate(from , {replace :true})
       console.log(googleUser);
+      const authEmail = {
+        email : googleUser.email
+      }
+      // get json web Token 
+      fetch('https://ass-11-amar-kitchen-server-arifbiswas.vercel.app/jwt',{
+            method : "POST",
+            headers : {
+              "content-type" : "application/json"
+            },
+            body : JSON.stringify(authEmail)
+          })
+          .then(res => res.json())
+          .then(data => {
+            console.log(data);
+            localStorage.setItem("auth-token",JSON.stringify(data.token))
+          })
+          .catch(e => {
+            console.log(e);
+          })
     })
     .catch(e => {
       console.log(e);
+      toast.error(e.message)
     })
   }
   return (
@@ -114,12 +141,12 @@ const Login = () => {
                       >
                         Password
                       </label>
-                      <a
-                        href="#"
+                      <p
+                        
                         className="text-sm text-gray-400 focus:text-yellow-500 hover:text-yellow-500 hover:underline"
                       >
                         Forgot password?
-                      </a>
+                      </p>
                     </div>
 
                     <input

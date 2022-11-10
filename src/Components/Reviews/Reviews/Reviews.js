@@ -21,7 +21,7 @@ const Reviews = () => {
 //   review loaded api 
   const [reviews , setReviews] = useState([])
   useEffect(()=>{
-    fetch(`http://localhost:5000/reviews?service_id=${_id}`)
+    fetch(`https://ass-11-amar-kitchen-server-arifbiswas.vercel.app/reviews?service_id=${_id}`)
     .then(res => res.json())
     .then(data => {
         console.log(data);
@@ -46,17 +46,17 @@ const Reviews = () => {
                   <img
                     className=" rounded-lg w-full  border-2 border-yellow-500"
                     src={image}
-                    alt="service image"
+                    alt=""
                   />
                 </PhotoView>
               </PhotoProvider>
             </Link>
             <div className="px-5 pb-5">
-              <a>
+              <div>
                 <h5 className="text-xl lg:text-5xl  mt-2 lg:mt-8  font-bold tracking-tight text-orange-500 ">
                   {service_name}
                 </h5>
-              </a>
+              </div>
               <div className="flex items-center mt-2.5 mb-5">
                 {parseInt(service_rating) === 1 && (
                   <>

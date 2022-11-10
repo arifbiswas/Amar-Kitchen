@@ -34,7 +34,7 @@ const PostReview = ({ service, setReviews, reviews }) => {
     setReviews([...reviews, postReviewWithUserInfo])
     console.log(postReviewWithUserInfo);
 
-    fetch("http://localhost:5000/reviews",{
+    fetch("https://ass-11-amar-kitchen-server-arifbiswas.vercel.app/reviews",{
         method : "POST",
         headers : {
             "content-type" : "application/json"

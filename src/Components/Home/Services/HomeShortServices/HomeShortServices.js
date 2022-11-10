@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { json, useNavigate } from "react-router-dom";
 
 const HomeShortServices = () => {
   // limited services 
    const [services, setServices] = useState([]);
   
   useEffect(()=>{
-    fetch(`http://localhost:5000/services?limited=3`)
+    fetch(`https://ass-11-amar-kitchen-server-arifbiswas.vercel.app/services?limited=3`)
     .then(res => res.json())
     .then(data => {
       console.log(data)
@@ -48,17 +48,8 @@ const HomeShortServices = () => {
                   <h2 className="mt-4 text-2xl font-semibold text-white capitalize">
                     {service?.service_name}
                   </h2>
-                  {/* <p className="mt-2 text-lg tracking-wider text-red-700 uppercase ">
-                  {service?.service_price}
-                  </p>
-                  <p className="mt-2 text-lg tracking-wider text-red-700 uppercase ">
-                  {service?.quantity}
-                  </p>
-                  <p className="mt-2 text-lg tracking-wider text-red-700 uppercase ">
-                  {service?.service_rating}
-                  </p> */}
                   <p className="mt-2 text-lg tracking-wider text-white uppercase ">
-                  {service?.description.slice(0,200) + "..."}
+                  {service.description.slice(0,200) + "..."}
                   </p>
                 </div>
               </div>)

@@ -1,17 +1,19 @@
 import React, { useContext, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { FaDumpsterFire } from "react-icons/fa";
 import { AuthProvider } from "../../../Contexts/AuthContext/AuthContext";
 
 const Headers = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { user, logOut } = useContext(AuthProvider);
+  const navigate = useNavigate()
 
   // LogOut handle
   const handleLogOut = () => {
     logOut()
-      .then((result) => {
-        console.log(result);
+      .then(() => {
+        localStorage.removeItem("auth-token")
+        navigate("/login")
       })
       .catch((e) => {
         console.log(e);
@@ -109,7 +111,8 @@ const Headers = () => {
               >
                 Services
               </NavLink>
-              <NavLink
+              {
+                user?.email && <NavLink
                 onClick={() => setIsOpen(!isOpen)}
                 className={({ isActive }) =>
                   isActive
@@ -120,7 +123,9 @@ const Headers = () => {
               >
                 My reviews
               </NavLink>
-              <NavLink
+              }
+              {
+                user?.email && <NavLink
                 onClick={() => setIsOpen(!isOpen)}
                 className={({ isActive }) =>
                   isActive
@@ -131,6 +136,7 @@ const Headers = () => {
               >
                 Add Services
               </NavLink>
+              }
               <NavLink
                 onClick={() => setIsOpen(!isOpen)}
                 className={({ isActive }) =>
