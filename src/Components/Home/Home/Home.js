@@ -1,6 +1,7 @@
 import React from 'react';
 
 import BannerSection from '../BannerSection/BannerSection';
+import RegularCustomer from '../RegularCustomer/RegularCustomer';
 import HomeShortServices from '../Services/HomeShortServices/HomeShortServices';
 import SiteActivitys from '../SiteActivitys/SiteActivitys';
 
@@ -11,14 +12,17 @@ const Home = () => {
     return (
         <div className={``}>
             
-            <div className='z-10'>
+            <div className=''>
             <BannerSection />
             </div>
-            <div className='z-10 my-12'>
+            <div className=' my-12'>
             <HomeShortServices></HomeShortServices>
             </div>
-            <div className='z-10 my-12'>
+            <div className=' my-12'>
             <SiteActivitys></SiteActivitys>
+            </div>
+            <div className='z-10 my-12'>
+            <RegularCustomer></RegularCustomer>
             </div>
             
         </div>
