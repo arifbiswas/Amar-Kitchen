@@ -28,7 +28,7 @@ const Headers = () => {
             <div className="">
               <Link
                 className="text-2xl  lg:text-5xl font-black text-yellow-400  transition-colors duration-300 transform lg:text-start  flex"
-                to="#"
+                to="/home"
               >
                 <div className="hidden lg:block">
                   <FaDumpsterFire></FaDumpsterFire>
