@@ -169,7 +169,7 @@ const ReviewUpdate = () => {
             <div class="flex items-center justify-center p-6 space-x-2 rounded-b border-t border-gray-200 ">
               <button
                 type="submit"
-                class="px-8 w-full py-5 leading-5 text-black transition-colors duration-300 transform bg-white hover:text-yellow-500 text-1xl rounded-md  border-4 hover:border-yellow-500 focus:bg-gray-600"
+                class="px-8 w-full py-5 leading-5 text-black transition-colors duration-300 transform bg-white hover:text-yellow-500 text-1xl rounded-md  border-4 hover:border-yellow-500 "
               >
                 Update
               </button>
