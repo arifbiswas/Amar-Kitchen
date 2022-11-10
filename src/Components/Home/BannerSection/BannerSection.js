@@ -5,7 +5,7 @@ import { FaArrowRight } from "react-icons/fa";
 const BannerSection = () => {
   return (
     <div>
-      <div className={`p-6 py-12 bg-gradient-to-r from-yellow-400 to-orange-500 dark:text-white font-bold `}>
+      <div className={`p-6 py-12 bg-gradient-to-r from-yellow-400 to-orange-500  text-white font-bold `}>
         <div className="container mx-auto">
         
           <div className="flex flex-col lg:flex-row items-center justify-between">

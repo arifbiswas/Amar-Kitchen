@@ -34,7 +34,7 @@ const Blogs = () => {
                   Difference between SQL and NoSQL?
                 </h1>
 
-                <p class="mt-2 text-sm text-gray-900 dark:text-gray-900">
+                <p class="mt-2 text-sm text-gray-900  text-gray-900">
                   SQL vs NoSQL: Five Main Differences SQL is the programming
                   language used to interface with relational databases.
                   (Relational databases model data as records in rows and tables
@@ -73,7 +73,7 @@ const Blogs = () => {
                   What is JWT, and how does it work?
                 </h1>
 
-                <p class="mt-2 text-sm text-gray-900 dark:text-gray-900">
+                <p class="mt-2 text-sm text-gray-900  text-gray-900">
                   JSON Web Token (JWT) is an open standard (RFC 7519) for
                   securely transmitting information between parties as JSON
                   object. It is compact, readable and digitally signed using a
@@ -108,7 +108,7 @@ const Blogs = () => {
                 How does NodeJS handle multiple requests at the same time?
                 </h1>
 
-                <p class="mt-2 text-sm text-gray-900 dark:text-gray-900">
+                <p class="mt-2 text-sm text-gray-900  text-gray-900">
                  NodeJS handle multiple client requests? NodeJS receives multiple client requests and places them into EventQueue. NodeJS is built with the concept of event-driven architecture. NodeJS has its own EventLoop which is an infinite loop that receives requests and processes them.
                 </p>
               </div>
@@ -138,7 +138,7 @@ const Blogs = () => {
                   What is the difference between javascript and NodeJS?
                 </h1>
 
-                <p class="mt-2 text-sm text-gray-900 dark:text-gray-900">
+                <p class="mt-2 text-sm text-gray-900  text-gray-900">
                   1. JavaScript is a client-side scripting language that is
                   lightweight, cross-platform, and interpreted. Both Java and
                   HTML include it. Node.js, on the other hand, is a V8-based

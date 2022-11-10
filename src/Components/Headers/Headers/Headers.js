@@ -42,7 +42,7 @@ const Headers = () => {
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 type="button"
-                className="text-gray-500  hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400"
+                className="text-gray-500  hover:text-gray-600  hover:text-gray-400 focus:outline-none focus:text-gray-600  focus:text-gray-400"
                 aria-label="toggle menu"
               >
                 {isOpen ? (
@@ -190,11 +190,11 @@ const Headers = () => {
 
              {
               user?.photoURL &&  <div className="relative flex-shrink-0 hidden lg:block">
-              <span className="absolute bottom-0 right-0 w-4 h-4 dark:bg-green-600 border rounded-full dark:text-gray-100 border-gray-900"></span>
+              <span className="absolute bottom-0 right-0 w-4 h-4  bg-green-600 border rounded-full  text-gray-100 border-gray-900"></span>
               <img
                 src={user?.photoURL}
                 alt=""
-                className="w-12 h-12 border rounded-full  dark:border-gray-700"
+                className="w-12 h-12 border rounded-full   border-gray-700"
               />
             </div>
             

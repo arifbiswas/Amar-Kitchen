@@ -24,7 +24,7 @@ const HomeShortServices = () => {
     <div className="cover text-center">
       <section className="">
         <div className="container px-6 py-10 mx-auto">
-          <h1 className="text-3xl  text-center text-yellow-800 capitalize lg:text-6xl font-extrabold dark:text-white">
+          <h1 className="text-3xl  text-center capitalize lg:text-6xl font-extrabold  text-white">
             Services
           </h1>
 

@@ -66,7 +66,7 @@ const PostReview = ({ service, setReviews, reviews }) => {
         <div className="text-3xl font-bold">YOUR REVIEWS</div>
       </div>
       <section class="max-w-4xl p-6 mx-auto border my-8 rounded-md shadow-md ">
-        <h2 class="text-lg font-semibold text-gray-700 capitalize dark:text-white"></h2>
+        <h2 class="text-lg font-semibold text-gray-700 capitalize  text-white"></h2>
 
         <form onSubmit={handlePostReviews}>
           <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2 items-center ">

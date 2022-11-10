@@ -132,7 +132,7 @@ const ReviewUpdate = () => {
                 <div class="col-span-6 sm:col-span-3">
                   <label
                     for="first-name"
-                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    class="block mb-2 text-sm font-medium text-gray-900  text-white"
                   >
                     Email
                   </label>
@@ -150,7 +150,7 @@ const ReviewUpdate = () => {
               <div class="col-span-6 sm:col-span-3">
                   <label
                     for="first-name"
-                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    class="block mb-2 text-sm font-medium text-gray-900  text-white"
                   >
                     First Name
                   </label>
